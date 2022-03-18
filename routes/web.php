@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,13 @@ Route::get('/', function () {
 Auth::routes();
 
 
+//_this route showing verification page_//
+Route::get('/email/verify', function () {
+    return view('auth.verify');
+})->middleware('auth')->name('verification.notice');
+
+
+//_this route for email verification_//
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
 
@@ -29,3 +37,7 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/deposit/money', [App\Http\Controllers\HomeController::class, 'DepositMoney'])->name('deposit.money')->middleware('verified');
+//_this route for email verification send_//
+Route::post('/verification/resend', [App\Http\Controllers\HomeController::class, 'VerificationResend'])->name('verification.resend');
+

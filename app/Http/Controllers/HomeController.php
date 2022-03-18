@@ -25,4 +25,18 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    //_Deposit Money Function_//
+    public function DepositMoney()
+    {
+        return view('money_deposit');
+    }
+
+     //_Email Verification Resend Function_//
+
+     public function VerificationResend()
+     {
+         return view('');
+     }
+
 }
