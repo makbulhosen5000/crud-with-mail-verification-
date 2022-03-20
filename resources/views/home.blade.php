@@ -15,6 +15,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <a href="{{route('person.details',Crypt::encryptString('1'))}}" class="btn btn-dark">Person Details</a>
                 </div>
             </div>
         </div>

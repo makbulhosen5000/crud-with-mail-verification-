@@ -59,6 +59,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a href="{{ route('deposit.money') }}" class="dropdown-item">Deposit Money</a>
+                                    <a href="{{ route('password.change') }}" class="dropdown-item">Password Change</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

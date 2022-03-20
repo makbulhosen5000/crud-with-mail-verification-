@@ -41,3 +41,10 @@ Route::get('/deposit/money', [App\Http\Controllers\HomeController::class, 'Depos
 //_this route for email verification send_//
 Route::post('/verification/resend', [App\Http\Controllers\HomeController::class, 'VerificationResend'])->name('verification.resend');
 
+
+Route::get('person/details/{id}', [App\Http\Controllers\HomeController::class, 'PersonDetails'])->name('person.details');
+
+//_password change route_//
+Route::get('/password/change', [App\Http\Controllers\HomeController::class, 'PasswordChange'])->name('password.change')->middleware('verified');
+Route::post('/password/update', [App\Http\Controllers\HomeController::class, 'PasswordUpdate'])->name('password.update')->middleware('verified');
+
