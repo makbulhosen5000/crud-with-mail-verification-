@@ -23,6 +23,26 @@ Route::get('/', function () {
 Auth::routes();
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //_this route showing verification page_//
 Route::get('/email/verify', function () {
     return view('auth.verify');
