@@ -8,6 +8,8 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
+                    <a href="{{route('class.name')}}" class="btn btn-success">Class</a>
+                    <a href="" class="btn btn-primary">Student</a>
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -15,7 +17,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
-                    <a href="{{route('person.details',Crypt::encryptString('1'))}}" class="btn btn-dark">Person Details</a>
+                    <a href="{{route('person.details',Crypt::encryptString('1'))}}">Person Details</a>
                 </div>
             </div>
         </div>

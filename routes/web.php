@@ -22,6 +22,14 @@ Route::get('/', function () {
 //Auth::routes(['register'=>false]);
 Auth::routes();
 
+//_class crud route_//
+Route::get('/class',[App\Http\Controllers\Admin\ClassController::class,'index'])->name('class.index');
+Route::get('/class/create',[App\Http\Controllers\Admin\ClassController::class,'create'])->name('class.create');
+Route::post('/class/store',[App\Http\Controllers\Admin\ClassController::class,'store'])->name('class.store');
+Route::get('/class/edit',[App\Http\Controllers\Admin\ClassController::class,'edit'])->name('class.edit');
+Route::post('/class/update/{id}',[App\Http\Controllers\Admin\ClassController::class,'update'])->name('class.update');
+Route::get('/class/delete/{id}',[App\Http\Controllers\Admin\ClassController::class,'destroy'])->name('class.delete');
+
 
 
 
