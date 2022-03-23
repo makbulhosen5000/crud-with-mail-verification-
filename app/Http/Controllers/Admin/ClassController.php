@@ -60,8 +60,8 @@ class ClassController extends Controller
      */
     public function edit($id)
     {
-        $data['EditData']=DB::table('classes')->where('id',$id)->first();
-        return view('admin.class.edit',$data);
+        $editData=DB::table('classes')->where('id',$id)->first();
+        return view('admin.class.edit',compact('editData'));
     }
 
    //_Class Delete function_//

@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    <a href="{{route('class.name')}}" class="btn btn-success">Class</a>
+                    <a href="{{route('class.index')}}" class="btn btn-success">Class</a>
                     <a href="" class="btn btn-primary">Student</a>
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">

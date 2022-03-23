@@ -10,7 +10,7 @@
                 </div>
                 <div class="card-body">
                     {{-- form start --}}
-                    <form action="{{route('class.update',$EditData->id)}} " method="POST" enctype="">
+                    <form action="{{route('class.update',$editData->id)}} " method="POST" enctype="">
                         @csrf
                         @if(Session::has('success'))
                         <div class="alert alert-success" role="alert">
@@ -19,7 +19,7 @@
                         @endif
                         <div class="form-group">
                             <label for="my-input">Class Name</label>
-                            <input id="my-input" class="form-control" type="text" name="class_name" value="{{ $updateClass->class_name }}">
+                            <input id="my-input" class="form-control" type="text" name="class_name" value="{{ $editData->class_name }}">
                             @error('class_name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
