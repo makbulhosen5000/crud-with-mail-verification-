@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Admin\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,8 @@ Route::get('/class/edit/{id}',[App\Http\Controllers\Admin\ClassController::class
 Route::post('/class/update/{id}',[App\Http\Controllers\Admin\ClassController::class,'update'])->name('class.update');
 Route::get('/class/delete/{id}',[App\Http\Controllers\Admin\ClassController::class,'destroy'])->name('class.delete');
 
+//_student crud route_//
+Route::resource('students',StudentController::class);
 
 
 

@@ -9,7 +9,6 @@ use DB;
 class ClassController extends Controller
 {
     //_constructor_//
-
     public function __construct()
     {
         $this->middleware('auth');
