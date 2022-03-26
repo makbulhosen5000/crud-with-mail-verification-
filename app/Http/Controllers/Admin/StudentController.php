@@ -16,7 +16,7 @@ class StudentController extends Controller
     public function index()
     {
         $students=DB::table('students')->orderBy('roll','ASC')->get();
-        return view('admin/student/index',compact('students'));
+        return view('admin.student.index',compact('students'));
     }
 
     /**
@@ -26,7 +26,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('admin/student/create');
+        $classes = DB::table('classes')->get();
+        return view('admin.student.create',compact('classes'));
     }
 
     /**
@@ -37,7 +38,24 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'class_id' => 'required',
+            'roll' => 'required',
+            'name' => 'required',
+            'phone' => 'required',
+            'email' => 'required'
+        ]);
+
+        $data =array(
+            'class_id' => $request->class_id,
+            'roll' => $request->roll,
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'email' => $request->email,
+        );
+        DB::table('students')->insert($data);
+        return redirect()->back()->with('success','Data Inserted Successfully');
+
     }
 
     /**
@@ -48,7 +66,8 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+        $showStudent = DB::table('students')->find($id);
+        return view('admin.student.show',compact('showStudent'));
     }
 
     /**
@@ -59,7 +78,9 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $classes = DB::table('classes')->get();
+        $student = DB::table('students')->where('id',$id)->first();
+        return view('admin.student.edit',compact('classes','student'));
     }
 
     /**
@@ -71,7 +92,22 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'class_id' => 'required',
+            'roll' => 'required',
+            'name' => 'required',
+            'phone' => 'required',
+            'email' => 'required'
+        ]);
+        $data =array(
+            'class_id' => $request->class_id,
+            'roll' => $request->roll,
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'email' => $request->email,
+        );
+        DB::table('students')->where('id',$id)->update($data);
+        return redirect()->route('students.index')->with('success','Data Updated Successfully');
     }
 
     /**
@@ -82,6 +118,7 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('students')->where('id',$id)->delete();
+        return redirect()->back()->with('success','Data Deleted Successfully');
     }
 }
