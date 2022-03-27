@@ -32,9 +32,10 @@
                                 </td>
                             </tr>
                             @endforeach
+
                         </tbody>
                     </table>
-
+                    {{ $classes->links('pagination::bootstrap-4') }}
 
                 </div>
             </div>

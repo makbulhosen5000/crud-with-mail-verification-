@@ -16,7 +16,7 @@ class ClassController extends Controller
 
     public function index()
     {
-        $data['classes']= DB::table('classes')->get();
+        $data['classes']= DB::table('classes')->paginate(3);
         return view('Admin.Class.index',$data);
 
     }
