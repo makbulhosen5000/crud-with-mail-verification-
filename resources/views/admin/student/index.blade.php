@@ -30,7 +30,7 @@
                                 <td>{{++$key}}</td>
                                 <td>{{$student->roll}}</td>
                                 <td>{{$student->name}}</td>
-                                <td>{{$student->class_id}}</td>
+                                <td>{{$student->class_name}}</td>
                                 <td>{{$student->phone}}</td>
                                 <td>{{$student->email}}</td>
                                 <td>

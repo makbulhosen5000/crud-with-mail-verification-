@@ -15,7 +15,8 @@ class StudentController extends Controller
 
     public function index()
     {
-        $students=DB::table('students')->orderBy('roll','ASC')->get();
+        $students = DB::table('students')->join('classes','students.class_id','classes.id')->get();
+        //$students=DB::table('students')->orderBy('roll','ASC')->get();
         return view('admin.student.index',compact('students'));
     }
 

@@ -18,7 +18,7 @@ class CreateStudentsTable extends Migration
             $table->unsignedBigInteger('class_id');
             $table->string('name')->nullable();
             $table->string('roll')->nullable();
-            $table->integer('phone')->nullable();
+            $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
